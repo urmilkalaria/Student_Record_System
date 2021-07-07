@@ -13,7 +13,7 @@ int printrowValue(sqlite3_stmt *stmt, int col, int count){
     // printf("\n");
 }
 
-int main(){
+int totalStudents(){
     sqlite3 *db;
     sqlite3_stmt *res;
     char *errmsg = 0;

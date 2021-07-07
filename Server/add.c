@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "sqlite-amalgamation-3350500/sqlite3.h"
 
-int main(){
+int add(){
 
     char *errmsg = 0;
     sqlite3 *db;

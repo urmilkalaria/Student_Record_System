@@ -2,7 +2,7 @@
 #include "sqlite-amalgamation-3350500/sqlite3.h"
 
 
-int main(){
+int create(){
     char *errmsg=0;
     sqlite3 *db;
     sqlite3_open("Details.db", &db);

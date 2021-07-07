@@ -8,7 +8,7 @@ void printColumnValue(sqlite3_stmt *stmt, int col){
     printf("\n %s : %s \t", sqlite3_column_name(stmt,col),sqlite3_column_text(stmt, col));
 }
 
-int main(){
+int display(){
     sqlite3 *db;
     sqlite3_stmt *res;
     char *errmsg = 0;
