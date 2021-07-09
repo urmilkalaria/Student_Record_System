@@ -10,7 +10,6 @@ int printrowValue(sqlite3_stmt *stmt, int col, int count){
     count++;
 
     return count;
-    // printf("\n");
 }
 
 int totalStudents(){
