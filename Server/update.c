@@ -166,6 +166,9 @@ int update(){
         }
         sqlite3_close(db);
     }
+    else{
+        printf("\n \nThe Given Name is not found.\n \n");
+    }
 
     return 0;
 }
