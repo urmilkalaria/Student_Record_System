@@ -80,5 +80,7 @@ int add(){
 
     sqlite3_close(db);
 
+    //printf("Successfully Added the Data in the Database.");
+
     return 0;
 }
