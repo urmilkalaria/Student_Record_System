@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "sqlite3.h"
+// #include "sqlite3.h"
 #include <string.h>
-#include "internal_header.h"
+#include "Server.h"
 
 int printrowValue(sqlite3_stmt *stmt, int col, int count){
     int colType = sqlite3_column_type(stmt, col);

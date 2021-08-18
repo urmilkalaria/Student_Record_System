@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "sqlite-amalgamation-3350500/sqlite3.h"
+#include "Server.h"
 
 
 int create(){

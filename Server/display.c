@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "sqlite3.h"
 #include <string.h>
+#include "Server.h"
 
 void printColumnValue(sqlite3_stmt *stmt, int col){
     int colType = sqlite3_column_type(stmt, col);
@@ -17,7 +18,7 @@ int display(){
     char array1[100];
     char *name = array1;
     printf("Enter Name: ");
-    scanf("%[^\n]%*c", name);
+    scanf(" %[^\n]%*c", name);
 
 
     char *show = "SELECT * FROM StudentDetails WHERE Name = ?;";

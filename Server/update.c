@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "sqlite-amalgamation-3350500/sqlite3.h"
+// #include "sqlite-amalgamation-3350500/sqlite3.h"
 #include <string.h>
+#include "Server.h"
 
 int update(){
     sqlite3 *db;
@@ -12,7 +13,7 @@ int update(){
     char array1[100];
     char *name = array1;
     printf("Enter the name of Student whose details are updated: ");
-    scanf("%[^\n]%*c", name);
+    scanf(" %[^\n]%*c", name);
 
     char *Validate = "SELECT * FROM StudentDetails WHERE EXISTS(SELECT Name FROM StudentDetails WHERE Name = ?)";
     int rc = sqlite3_prepare_v2(db, Validate, -1, &res, NULL);
@@ -164,7 +165,6 @@ int update(){
                 break;
             }
 
-            //printf("Successfully Updated the Data.");
         }
         sqlite3_close(db);
     }

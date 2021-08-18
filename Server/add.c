@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "sqlite-amalgamation-3350500/sqlite3.h"
+// #include "sqlite-amalgamation-3350500/sqlite3.h"
+#include "Server.h"
 
 int add(){
 
@@ -8,50 +9,96 @@ int add(){
     sqlite3_stmt *res;
     sqlite3_open("Details.db", &db);
 
+    a: ;
+        char array1[100];
+        char *name = array1;
+        printf("Enter Name: ");
+        scanf(" %[^\n]%*c", name);
+        if(name_check(name)==0){
+            printf("Please Enter the correct Details.\n");
+            goto a;
+        }
+        // else{
+        //     goto b;
+        // }
 
-    char array1[100];
-    char *name = array1;
-    printf("Enter Name: ");
-    scanf("%[^\n]%*c", name);
+    b: ;
+        char array2[300];
+        char *address = array2;
+        printf("Enter Address: ");
+        scanf(" %[^\n]%*c", address);
 
-    char array2[300];
-    char *address = array2;
-    printf("Enter Address: ");
-    scanf("%[^\n]%*c", address);
+    c: ;
+        char array3[100];
+        char *DOB = array3;
+        printf("Enter Date of Birth: ");
+        scanf(" %s", DOB);
+        if(date_check(DOB)==0){
+            printf("Please Enter the correct Details.\n");
+            goto c;
+        }
+        // else{
+        //     goto d;
+        // }
 
-    char array3[100];
-    char *DOB = array3;
-    printf("Enter Date of Birth: ");
-    scanf("%s", DOB);
+    d: ;
+        char array4[100];
+        char *DOA = array4;
+        printf("Enter Date of Admission: ");
+        scanf(" %s", DOA);
+        if(date_check(DOA)==0){
+            printf("Please Enter the correct Details.\n");
+            goto d;
+        }
+        // else{
+        //     goto e;
+        // }
 
-    char array4[100];
-    char *DOA = array4;
-    printf("Enter Date of Admission: ");
-    scanf("%s", DOA);
+    e: ;
+        char array5[100];
+        char *grade = array5;
+        printf("Enter Grade: ");
+        scanf(" %s", grade);
+        if(grade_check(grade)==0){
+            printf("Please Enter the correct Details.\n");
+            goto e;
+        }
+        // else{
+        //     goto f;
+        // }
 
-    char array5[100];
-    char *grade = array5;
-    printf("Enter Grade: ");
-    scanf("%s", grade);
+    f: ;
+        int roll_number;
+        printf("Enter the roll number: ");
+        scanf(" %d", &roll_number);
 
-    int roll_number;
-    printf("Enter the roll number: ");
-    scanf("%d", &roll_number);
+    g: ;
+        char array6[100];
+        char *section = array6;
+        printf("Enter Section: ");
+        scanf(" %s", section);
 
-    char array6[100];
-    char *section = array6;
-    printf("Enter Section: ");
-    scanf("%s", section);
+    h: ;
+        int branch_code;
+        printf("Enter branch code: ");
+        scanf(" %d", &branch_code);
+        if(branch_check(branch_code)==0){
+            printf("Please Enter the correct Details.\n");
+            goto h;
+        }
+        else{
+            goto i;
+        }
 
-    int branch_code;
-    printf("Enter branch code: ");
-    scanf("%d", &branch_code);
-
-    char array7[100];
-    char *phone_number = array7;
-    printf("Enter phone number: ");
-    scanf("%s", phone_number);
-
+    i: ;
+        char array7[100];
+        char *phone_number = array7;
+        printf("Enter phone number: ");
+        scanf(" %s", phone_number);
+        if(phone_check(phone_number)==0){
+            printf("Please Enter the correct Details.\n");
+            goto i;
+        }
 
     char *data;
     data = "INSERT INTO StudentDetails VALUES (?,?,?,?,?,@roll_number,?, @branch_code, ?);";
@@ -79,8 +126,6 @@ int add(){
     sqlite3_finalize(res);
 
     sqlite3_close(db);
-
-    //printf("Successfully Added the Data in the Database.");
 
     return 0;
 }

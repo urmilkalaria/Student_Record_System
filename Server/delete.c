@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "sqlite-amalgamation-3350500/sqlite3.h"
+#include "Server.h"
 
-int delete(){
+int delete_record(){
 
     sqlite3 *db;
     sqlite3_stmt *res;
@@ -12,7 +13,7 @@ int delete(){
     char array[100];
     char *name = array;
     printf("Enter the name of student whose record needs to be deleted: ");
-    scanf("%[^\n]%*c", name);
+    scanf(" %[^\n]%*c", name);
 
     char *Validate = "SELECT * FROM StudentDetails WHERE EXISTS(SELECT Name FROM StudentDetails WHERE Name = ?)";
     int rc = sqlite3_prepare_v2(db, Validate, -1, &res, NULL);
